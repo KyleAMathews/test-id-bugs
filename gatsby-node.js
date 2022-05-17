@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -113,3 +114,20 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `)
 }
+
+exports.sourceNodes = async ({
+  actions: { createNode },
+  store,
+  cache,
+  createNodeId,
+}) => {
+  let fileNode = await createRemoteFileNode({
+    url: `http://127.0.0.1:9000/DJI_0485.JPG`, // string that points to the URL of the image
+    createNode, // helper function in gatsby-node to generate the node
+    createNodeId, // helper function in gatsby-node to generate the node id
+    cache, // Gatsby's cache
+    store, // Gatsby's redux store
+  })
+
+}
+
