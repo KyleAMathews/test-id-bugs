@@ -122,7 +122,7 @@ exports.sourceNodes = async ({
   createNodeId,
 }) => {
   let fileNode = await createRemoteFileNode({
-    url: `http://127.0.0.1:9000/DJI_0485.JPG`, // string that points to the URL of the image
+    url: `http://127.0.0.1:9000/DJI_0441.jpg`, // string that points to the URL of the image
     createNode, // helper function in gatsby-node to generate the node
     createNodeId, // helper function in gatsby-node to generate the node id
     cache, // Gatsby's cache
